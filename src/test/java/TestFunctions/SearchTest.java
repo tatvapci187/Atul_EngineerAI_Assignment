@@ -29,7 +29,7 @@ public class SearchTest extends utility {
 
 		List<WebElement> tableEle = gSearchPage.lstSearch.findElements(By.tagName("li"));
 		System.out.println(tableEle.size());
-		boolean found = false;
+		
 
 		for (int i = 0; i < tableEle.size() - 1; i++)
 
