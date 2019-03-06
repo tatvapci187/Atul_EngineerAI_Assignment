@@ -25,12 +25,20 @@ public class SearchTest extends utility {
 	@Test
 	public void SearchText() {
 		gSearchPage = PageFactory.initElements(driver, GoogleSearchPage.class);
-		gSearchPage.txtSearch.sendKeys("wedding");
+
+		String val = "wedding";
+
+		for (int i = 0; i < val.length(); i++) {
+			char c = val.charAt(i);
+			String s = new StringBuilder().append(c).toString();
+			gSearchPage.txtSearch.sendKeys(s);
+		}
+
+		// gSearchPage.txtSearch.sendKeys("wedding");
 		gSearchPage.lstSearch.findElements(By.tagName("li"));
 
 		List<WebElement> tableEle = gSearchPage.lstSearch.findElements(By.tagName("li"));
 		System.out.println(tableEle.size());
-		
 
 		for (int i = 0; i < tableEle.size() - 1; i++)
 
@@ -43,9 +51,9 @@ public class SearchTest extends utility {
 		}
 
 	}
+
 	@AfterTest
-	public void postCondition()
-	{
+	public void postCondition() {
 		tearDown();
 	}
 
