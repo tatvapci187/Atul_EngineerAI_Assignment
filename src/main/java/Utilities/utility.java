@@ -15,5 +15,10 @@ public class utility
 		driver = new ChromeDriver();
 		driver.get("https://www.google.com/");
 	}
+	
+	public void tearDown()
+	{
+		driver.quit();
+	}
 
 }
